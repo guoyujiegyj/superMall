@@ -28,7 +28,7 @@ export default {
 <style lang='scss' scoped>
 .recommend{
   display: flex;
-  margin-top: .16rem;
+  margin-top: .213333rem;
   border-bottom: 8px solid #eee;
   padding-bottom: .266667rem;
   //width: 100%;
