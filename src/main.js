@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// 导入移动端适配文件
+import '@/assets/js/flexible.js'
+
 Vue.config.productionTip = false
 
 new Vue({
