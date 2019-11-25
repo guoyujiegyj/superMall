@@ -31,6 +31,9 @@ export default {
 <style lang='scss' scoped>
 @import '@/assets/css/variable.scss';
 .tab_card{
+  // 两行代码完成吸顶效果。
+  position: sticky;
+  top: 1rem;
   width: 100%;
   height: 1rem;
   line-height: 1rem;
