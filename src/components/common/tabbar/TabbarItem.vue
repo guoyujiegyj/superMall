@@ -35,8 +35,6 @@ export default {
 @import '@/assets/css/variable.scss';
 .tabbar_item{
   flex: 1;
-  // font-size: $fontsize;
-  
   text-align: center;
 }
 .tabbar_item img{
