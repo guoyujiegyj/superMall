@@ -9,7 +9,8 @@
     <Recommend :recommend="recommend"></Recommend>
     <!--feature部分-->  
     <feature></feature>
-    <tab-card :tabTitle="['流行','新款','精选']"></tab-card>
+    <tab-card :tabTitle="['流行','新款','精选']" @tabChange="tabChange"></tab-card>
+    <goods-item :goodsItem='showGoods'></goods-item>
     <ul>
       <li>jack</li>
       <li>jack</li>
@@ -71,6 +72,7 @@ import Swiper from './swiper/Swiper'
 import Recommend from './recommend/Recommend'
 import Feature from './feature/Feature'
 import TabCard from '@/components/content/tabCard/TabCard'
+import GoodsItem from '@/components/content/goods/GoodsItem'
 
 export default {
   data() {
@@ -81,7 +83,9 @@ export default {
         pop: {list: [],page: 0},
         news: {list: [],page: 0},
         sell: {list: [],page: 0}
-      }
+      },
+      // 默认类型时pop
+      defaultType: 'pop'
     }
   },
   components: {
@@ -89,7 +93,8 @@ export default {
     Swiper,
     Recommend,
     Feature,
-    TabCard
+    TabCard,
+    GoodsItem
   },
   created() {
     // 轮播和推荐
@@ -119,6 +124,26 @@ export default {
         // 数据请求完成，page应该加1
         this.goods[type].page += 1
       })
+    },
+    // tabcard组件点击事件传来tab的id。根据id切换不同类型。
+    tabChange(id) {
+      console.log(id)
+      switch(id) {
+        case 0:
+          this.defaultType='pop'
+          break
+        case 1:
+          this.defaultType='sell'
+          break
+        case 2:
+          this.defaultType='news'
+          break
+      }
+    }
+  },
+  computed: {
+    showGoods() {
+      return this.goods[this.defaultType].list
     }
   }
 }

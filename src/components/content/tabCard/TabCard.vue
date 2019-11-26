@@ -23,6 +23,8 @@ export default {
     // 点击时tab切换
     tabClick(id) {
       this.nowIndex = id
+      // 点击时向外触发事件,并传去id
+      this.$emit('tabChange',id)
     }
   }
 }
