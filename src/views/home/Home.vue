@@ -1,66 +1,68 @@
 <template>
-  <div class = "contain">
+  <div class = "wrapper">
     <my-header class="my_header">
       <span slot='middle'>购物街</span>
     </my-header>
-    <!--导入轮播组件，并将轮播图数据传过去-->
-    <swiper :banner="banner"></swiper>
-    <!--商品推荐,传去数据-->
-    <Recommend :recommend="recommend"></Recommend>
-    <!--feature部分-->  
-    <feature></feature>
-    <tab-card :tabTitle="['流行','新款','精选']" @tabChange="tabChange"></tab-card>
-    <goods-item :goodsItem='showGoods'></goods-item>
-    <ul>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-      <li>jack</li>
-    </ul>
+      <my-scroll class="contain">
+        <!--导入轮播组件，并将轮播图数据传过去-->
+        <swiper :banner="banner"></swiper>
+        <!--商品推荐,传去数据-->
+        <Recommend :recommend="recommend"></Recommend>
+        <!--feature部分-->  
+        <feature></feature>
+        <tab-card :tabTitle="['流行','新款','精选']" @tabChange="tabChange"></tab-card>
+        <goods-item :goodsItem='showGoods'></goods-item>
+        <ul>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+          <li>jack</li>
+        </ul>
+      </my-scroll>
   </div>
 </template>
 <script>
@@ -73,6 +75,7 @@ import Recommend from './recommend/Recommend'
 import Feature from './feature/Feature'
 import TabCard from '@/components/content/tabCard/TabCard'
 import GoodsItem from '@/components/content/goods/GoodsItem'
+import MyScroll from '@/components/common/scroll/Scroll'
 
 export default {
   data() {
@@ -94,7 +97,8 @@ export default {
     Recommend,
     Feature,
     TabCard,
-    GoodsItem
+    GoodsItem,
+    MyScroll
   },
   created() {
     // 轮播和推荐
@@ -151,12 +155,25 @@ export default {
 
 <style lang="scss" scoped>
  @import '@/assets/css/variable.scss';
-  .contain{
-      padding-top: 1rem;
-      
+  .wrapper{
+    padding-top: 1rem;
+    // home 的高度：100%的视口高度。
+      height: 100vh;
+      overflow: hidden;
   }
   .my_header{
     background: $maincolor;
     color: #fff;
+  }
+  .contain{
+    // css3的计算calc，100%是contain的整体高度，也就是父元素home的高度。
+    //应该减去header的高度和tabbar的高度。
+    // header的高度和padding-top抵消了，所以不用减。
+    height: calc(100% - 1.2rem);
+     overflow: hidden;
+
+    // position: absolute;
+    // top: 1rem;
+    // bottom: 1.2rem;
   }
 </style>

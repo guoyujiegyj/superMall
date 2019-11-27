@@ -32,6 +32,7 @@ export default {
   /**居中 */
   margin-left: 50%;
   transform: translateX(-50%);
+  z-index: 100;
 }
 
 </style>

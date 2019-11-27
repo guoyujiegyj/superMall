@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contain">
     <swiper v-if="banner.length>1" :options="swiperOption">
         <swiper-slide v-for="(item,id) in banner" :key="id" >
             <a href="item.link">
@@ -41,6 +41,14 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+// .contain{
+//   width: 100%;
+//   max-width: 750px;
+// }
+// .swiper-container{
+//   width: 100%;
+//   max-width: 750px;
+// }
 .swiper-container img{
   width: 100%;
 }
